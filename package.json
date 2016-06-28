@@ -9,7 +9,10 @@
   ],
   "version": "1.0.0",
   "description": "Manipulate apk's run,uninstall,install,stop",
-
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m-seldin/apk-manager.git"
+  },
   "main": "./lib/apk-runner",
   "scripts": {
     "start":"node ./bin/apk-runner",
