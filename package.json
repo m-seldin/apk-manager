@@ -1,22 +1,30 @@
 {
   "name": "apk-runner",
+  "author": "Michael Seldin",
+  "keywords": [
+    "github",
+    "tool",
+    "android",
+    "apk"
+  ],
   "version": "1.0.0",
-  "description": "Run apk on device",
+  "description": "Manipulate apk's run,uninstall,install,stop",
+
   "main": "./lib/apk-runner",
   "scripts": {
-	"start":"node ./bin/apk-runner",
+    "start":"node ./bin/apk-runner",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },  
+  },
   "author": "Michael Seldin",
   "license": "ISC",
   "bin":{
-	"apk-runner":"./bin/apk-runner",
-	"ar":"./bin/apk-runner"
+    "apk-runner":"./bin/apk-runner",
+    "ar":"./bin/apk-runner"
   },
   "dependencies": {
     "readline-sync":"^1.4.2",
     "stdio":"0.2.7",
     "log4js":"0.6.37"
   }
-  
+
 }
