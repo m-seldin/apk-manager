@@ -1,0 +1,9 @@
+'use strict';
+
+var ApkRunner = require('../lib/apk-runner.js');
+
+console.log(`Using android home dir : ${process.env.ANDROID_HOME}`);
+
+var apkRunner = ApkRunner.createApkRunner(process.env.ANDROID_HOME);
+apkRunner.chooseDevice();
+console.log(apkRunner.getDevice());
