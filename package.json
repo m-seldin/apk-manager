@@ -4,7 +4,7 @@
   "description": "Run apk on device",
   "main": "./lib/apk-runner",
   "scripts": {
-	"start":"node ./bin/apk-runner"
+	"start":"node ./bin/apk-runner",
     "test": "echo \"Error: no test specified\" && exit 1"
   },  
   "author": "Michael Seldin",
@@ -12,6 +12,11 @@
   "bin":{
 	"apk-runner":"./bin/apk-runner",
 	"ar":"./bin/apk-runner"
+  },
+  "dependencies": {
+    "readline-sync":"^1.4.2",
+    "stdio":"0.2.7",
+    "log4js":"0.6.37"
   }
   
 }

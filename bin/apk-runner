@@ -1,12 +1,65 @@
+#!/usr/bin/env node
+//
+// Copyright 2016 Michael Seldin
+//     Licensed under the Apache License, Version 2.0 (the "License");
+//     you may not use this file except in compliance with the License.
+//     You may obtain a copy of the License at
+// http://www.apache.org/licenses/LICENSE-2.0
+//     Unless required by applicable law or agreed to in writing,
+//     Software distributed under the License is distributed on an "AS IS" BASIS,
+//     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//     See the License for the specific language governing permissions and limitations under the License.
+//
+//  Author:
+//  Michael Seldin
+
 'use strict';
+const Helpers = require('../lib/helpers');
+const ApkRunner = require('../lib/apk-runner.js');
+const androidHome =process.env.ANDROID_HOME;
+const stdio = require('stdio');
 
-var ApkRunner = require('../lib/apk-runner.js');
+if(!Helpers.fileExists(androidHome)){
+    logger.error(`ANDROID_HOME env variable is not defined! Exiting!`)
+    return;
+}
 
-console.log(`Using android home dir : ${process.env.ANDROID_HOME}`);
-var apk = "c:\\temp\\TestApp-debug-unaligned-infused-realprobe.apk"
-var apkRunner = ApkRunner.createApkRunner(apk,process.env.ANDROID_HOME);
+logger.info(`Using android home dir : ${androidHome}`);
 
-apkRunner.stopApp();
-apkRunner.uninstallApk();
-apkRunner.installApk();
-apkRunner.runApp();
+
+let ops = stdio.getopt({
+    'uninstall': {key: 'u', description: 'Uninstall apk'},
+    'install': {key: 'i', description: 'Install apk'},
+    'run': {key: 'r', description: 'Run app'},
+    'stop': {key: 's', description: 'Stop app'}
+});
+
+let apk = ops.args[1];
+
+let apkRunner = ApkRunner.createApkRunner(apk,androidHome);
+if(ops.stop || ops.uninstall || ops.run || ops.install) {
+    if (ops.stop) {
+        apkRunner.stopApp();
+    }
+
+    if (ops.uninstall) {
+        apkRunner.uninstallApk();
+    }
+
+    if (ops.install) {
+        apkRunner.installApk();
+    }
+
+    if (ops.run) {
+        apkRunner.runApp();
+    }
+}else{
+    apkRunner.stopApp();
+    apkRunner.uninstallApk();
+    apkRunner.installApk();
+    apkRunner.runApp();
+}
+
+
+logger.info("Done!");
+
