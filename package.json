@@ -2,10 +2,8 @@
   "name": "apk-runner",
   "author": "Michael Seldin",
   "keywords": [
-    "github",
-    "tool",
-    "android",
-    "apk"
+    "github","tool","android","apk","adb",
+    "manager","install","uninstall","run","stop","application","library"
   ],
   "version": "1.0.2",
   "description": "Manipulate apk's run,uninstall,install,stop",
