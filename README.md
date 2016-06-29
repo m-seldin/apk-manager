@@ -1,6 +1,9 @@
 Module for manipulating apk's with adb
 Install, uninstall, run, stop application on your device from command line
 
+
+[![Build Status](https://travis-ci.org/m-seldin/apk-manager.svg?branch=master)](https://travis-ci.org/m-seldin/apk-manager)
+
 [![NPM](https://nodei.co/npm/apk-runner.png)](https://nodei.co/npm/apk-runner/)
 
 ## 1. Installation
