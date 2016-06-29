@@ -1,6 +1,7 @@
 {
   "name": "apk-runner",
   "author": "Michael Seldin",
+  "homepage": "https://github.com/m-seldin/apk-manager",
   "keywords": [
     "github","tool","android","apk","adb",
     "manager","install","uninstall","run","stop","application","library"
@@ -26,6 +27,13 @@
     "readline-sync":"^1.4.2",
     "stdio":"0.2.7",
     "log4js":"0.6.37"
-  }
-
+  },
+  "devDependencies": {
+    "jasmine-node": "1.14.5",
+    "jshint": "2.9.2"
+  },
+  "scripts": {
+    "test": "jasmine-node --matchall tests/"
+  },
+  "readmeFilename": "README.md"
 }

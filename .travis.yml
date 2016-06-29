@@ -1,9 +1,7 @@
 language: node_js
 node_js:
-  - "6"
-  - "6.1"
-  - "5.11"
-  - "0.10"
-  - "0.11"
-  - "0.12"
+  - "5"
   - "iojs"
+before_script:
+  - "npm i -g jasmine-node"
+  - "npm i -g jshint"
