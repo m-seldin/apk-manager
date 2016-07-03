@@ -6,7 +6,7 @@
     "github","tool","android","apk","adb",
     "manager","install","uninstall","run","stop","application","library"
   ],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Manipulate apk's run,uninstall,install,stop",
   "repository": {
     "type": "git",
