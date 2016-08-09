@@ -31,15 +31,28 @@ let ops = stdio.getopt({
     'uninstall': {key: 'u', description: 'Uninstall apk'},
     'install': {key: 'i', description: 'Install apk'},
     'run': {key: 'r', description: 'Run app'},
-    'stop': {key: 's', description: 'Stop app'}
+    'stop': {key: 's', description: 'Stop app'},
+    'removeSig': {description: 'Remove signature from apk'},
+    'debugLevel': {args: 1,description: 'DEBUG,INFO,WARNING,ERROR'}
 });
+
+if(ops.debugLevel){
+    logger.setLevel(ops.debugLevel);
+}else{
+    logger.setLevel('INFO');
+}
 
 let apk = ops.args[0];
 
 logger.info(`Running on ${apk}`);
 
 let apkRunner = ApkRunner.createApkRunner(apk,androidHome);
-if(ops.stop || ops.uninstall || ops.run || ops.install) {
+
+if(ops.stop || ops.uninstall || ops.run || ops.install || ops.removeSig) {
+    if(ops.removeSig){
+//        apkRunner.stripSignature()
+    }
+
     if (ops.stop) {
         apkRunner.stopApp();
     }
